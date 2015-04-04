@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates
 
 # Clone and build couch-per-user plugin
-RUN mkdir -p /usr/lib/couchdb/plugins && \
-    cd /usr/lib/couchdb/plugins && \
+RUN mkdir -p /usr/lib/x86_64-linux-gnu/couchdb/plugins && \
+    cd /usr/lib/x86_64-linux-gnu/couchdb/plugins && \
     git clone https://github.com/etrepum/couchperuser.git && \
     cd couchperuser && \
     git reset --hard 1.1.0 && \
