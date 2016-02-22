@@ -20,7 +20,10 @@ RUN mkdir -p /usr/lib/x86_64-linux-gnu/couchdb/plugins && \
 RUN mkdir /var/run/couchdb
 
 # Install local config
+ARG ADMIN_PASS=admin
+ARG CORS_ORIGINS="http://localhost, https://localhost, http://tracer.arcs.co, https://tracer.arcs.co"
 COPY local.ini /etc/couchdb/
+RUN sed -i -e "s|\$ADMIN_PASS|${ADMIN_PASS}|g" -e "s|\$CORS_ORIGINS|${CORS_ORIGINS}|g" /etc/couchdb/local.ini
 
 # Dokku checks file
 COPY CHECKS /app/
