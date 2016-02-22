@@ -22,8 +22,8 @@ RUN mkdir /var/run/couchdb
 # Install local config
 COPY local.ini /etc/couchdb/
 
+# Dokku checks file
+COPY CHECKS /app/
+
 EXPOSE 5984
 ENTRYPOINT ["couchdb"]
-
-
-
